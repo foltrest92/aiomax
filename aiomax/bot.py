@@ -538,7 +538,7 @@ class Bot(Router):
             async with aiofiles.open(data, "rb") as f:
                 data = await f.read()
 
-        form = aiohttp.FormData()
+        form = aiohttp.FormData(quote_fields=False)
         form.add_field(field_name, data)
 
         url_resp = await self.post(
